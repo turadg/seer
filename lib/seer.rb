@@ -8,8 +8,9 @@ module Seer
   require 'seer/geomap'
   require 'seer/line_chart'
   require 'seer/pie_chart'
+  require 'seer/scatter_chart'
   
-  VISUALIZERS = [:area_chart, :bar_chart, :column_chart, :gauge, :geomap, :line_chart, :pie_chart]
+  VISUALIZERS = [:area_chart, :bar_chart, :column_chart, :gauge, :geomap, :line_chart, :pie_chart, :scatter_chart]
   
   def self.valid_hex_number?(val) #:nodoc:
     return false unless val.is_a?(String) && ! val.empty?
@@ -63,6 +64,10 @@ module Seer
 
   def self.pie_chart(data, args)
     PieChart.render(data, args)
+  end
+  
+  def self.scatter_chart(data, args)
+    ScatterChart.render(data, args)
   end
   
 end
